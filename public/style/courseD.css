@@ -1,0 +1,469 @@
+
+.course-detail-container {
+    display: flex; /* Use flexbox for layout */
+    max-width: 1200px; /* Max width of the container */
+    margin: 40px auto; /* Center the container with top/bottom margin */
+    padding: 20px; /* Padding inside the container */
+    background: white; /* White background for the course detail */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.instructor-photo-container {
+    flex: 1; /* Flex grow for photo container */
+    margin-right: 20px; /* Space between photo and text */
+    text-align: center; /* Center align text below the image */
+}
+
+.instructor-photo {
+    width: 100%; /* Make image responsive */
+    max-width: 80%; /* Limit image width to 80% */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Round the instructor photo */
+}
+
+.instructor-info {
+    margin-top: 10px; /* Space above instructor info */
+    font-size: 1em; /* Set font size for instructor info */
+    color: #555; /* Slightly lighter color for the info */
+}
+
+.course-description-container {
+    flex: 2; /* Flex grow for text container */
+}
+
+.course-title {
+    font-size: 2.5em; /* Bigger title size */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.course-description {
+    margin-bottom: 15px; /* Space below the description */
+}
+
+.enroll-button {
+    padding: 17px 40px; /* Reduced padding for a smaller button */
+    background-color: #4CAF50; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for button */
+    font-size: 16px; /* Decrease font size */
+    cursor: pointer; /* Change cursor on hover */
+    width: auto; /* Set width to auto for smaller button */
+    margin: 20px auto 0; /* Center the button with margin */
+    display: block; /* Make button a block element */
+}
+
+.enroll-button:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+footer {
+    text-align: center; /* Center align footer text */
+    margin-top: 20px; /* Space above footer */
+}
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --hue: 223;
+    --starHue: 38;
+    --bg: hsl(223, 10%, 90%);
+    --fg: hsl(223, 10%, 10%);
+    --primary: hsl(223, 90%, 55%);
+    --yellow: hsl(38, 90%, 55%);
+    --yellow-t: hsla(38, 90%, 55%, 0);
+
+}
+
+
+.rating {
+    margin: auto;
+}
+
+.rating__display {
+    font-size: 1em;
+    font-weight: 500;
+    min-height: 1.25em;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.rating__stars {
+    display: flex;
+    padding-bottom: 0.375em;
+    position: relative;
+}
+
+.rating__star {
+    display: block;
+    overflow: visible;
+    pointer-events: none;
+    width: 2em;
+    height: 2em;
+}
+
+.rating__star-ring,
+.rating__star-fill,
+.rating__star-line,
+.rating__star-stroke {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.rating__star-ring,
+.rating__star-fill,
+.rating__star-line {
+    stroke: var(--yellow);
+}
+
+.rating__star-fill {
+    fill: var(--yellow);
+    transform: scale(0);
+    transition:
+        fill var(--trans-dur) var(--bezier),
+        transform var(--trans-dur) var(--bezier);
+}
+
+.rating__star-line {
+    stroke-dasharray: 12 13;
+    stroke-dashoffset: -13;
+}
+
+.rating__star-stroke {
+    stroke: hsl(223, 10%, 80%);
+    transition: stroke var(--trans-dur);
+}
+
+.rating__label {
+    cursor: pointer;
+    padding: 0.125em;
+}
+
+.rating__label--delay1 .rating__star-ring,
+.rating__label--delay1 .rating__star-fill,
+.rating__label--delay1 .rating__star-line,
+.rating__label--delay1 .rating__star-stroke {
+    animation-delay: 0.05s * 1;
+}
+
+.rating__label--delay2 .rating__star-ring,
+.rating__label--delay2 .rating__star-fill,
+.rating__label--delay2 .rating__star-line,
+.rating__label--delay2 .rating__star-stroke {
+    animation-delay: 0.05s * 2;
+}
+
+.rating__label--delay3 .rating__star-ring,
+.rating__label--delay3 .rating__star-fill,
+.rating__label--delay3 .rating__star-line,
+.rating__label--delay3 .rating__star-stroke {
+    animation-delay: 0.05s * 3;
+}
+
+.rating__label--delay4 .rating__star-ring,
+.rating__label--delay4 .rating__star-fill,
+.rating__label--delay4 .rating__star-line,
+.rating__label--delay4 .rating__star-stroke {
+    animation-delay: 0.05s * 4;
+}
+
+.rating__input {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Display */
+.rating__input:hover ~ [data-rating]:not([hidden]) {
+    display: none;
+}
+
+.rating__input-1:hover ~ [data-rating="1"][hidden],
+.rating__input-2:hover ~ [data-rating="2"][hidden],
+.rating__input-3:hover ~ [data-rating="3"][hidden],
+.rating__input-4:hover ~ [data-rating="4"][hidden],
+.rating__input-5:hover ~ [data-rating="5"][hidden],
+.rating__input:checked:hover ~ [data-rating]:not([hidden]) {
+    display: block;
+}
+
+/* Stars */
+.rating__input-1:hover ~ .rating__label:first-of-type .rating__star-stroke,
+.rating__input-2:hover ~ .rating__label:nth-of-type(-n + 2) .rating__star-stroke,
+.rating__input-3:hover ~ .rating__label:nth-of-type(-n + 3) .rating__star-stroke,
+.rating__input-4:hover ~ .rating__label:nth-of-type(-n + 4) .rating__star-stroke,
+.rating__input-5:hover ~ .rating__label:nth-of-type(-n + 5) .rating__star-stroke {
+    stroke: var(--yellow);
+    transform: scale(1);
+}
+
+.rating__input-1:checked ~ .rating__label:first-of-type .rating__star-ring,
+.rating__input-2:checked ~ .rating__label:nth-of-type(-n + 2) .rating__star-ring,
+.rating__input-3:checked ~ .rating__label:nth-of-type(-n + 3) .rating__star-ring,
+.rating__input-4:checked ~ .rating__label:nth-of-type(-n + 4) .rating__star-ring,
+.rating__input-5:checked ~ .rating__label:nth-of-type(-n + 5) .rating__star-ring {
+    animation-name: starRing;
+}
+
+.rating__input-1:checked ~ .rating__label:first-of-type .rating__star-stroke,
+.rating__input-2:checked ~ .rating__label:nth-of-type(-n + 2) .rating__star-stroke,
+.rating__input-3:checked ~ .rating__label:nth-of-type(-n + 3) .rating__star-stroke,
+.rating__input-4:checked ~ .rating__label:nth-of-type(-n + 4) .rating__star-stroke,
+.rating__input-5:checked ~ .rating__label:nth-of-type(-n + 5) .rating__star-stroke {
+    animation-name: starStroke;
+}
+
+.rating__input-1:checked ~ .rating__label:first-of-type .rating__star-line,
+.rating__input-2:checked ~ .rating__label:nth-of-type(-n + 2) .rating__star-line,
+.rating__input-3:checked ~ .rating__label:nth-of-type(-n + 3) .rating__star-line,
+.rating__input-4:checked ~ .rating__label:nth-of-type(-n + 4) .rating__star-line,
+.rating__input-5:checked ~ .rating__label:nth-of-type(-n + 5) .rating__star-line {
+    animation-name: starLine;
+}
+
+.rating__input-1:checked ~ .rating__label:first-of-type .rating__star-fill,
+.rating__input-2:checked ~ .rating__label:nth-of-type(-n + 2) .rating__star-fill,
+.rating__input-3:checked ~ .rating__label:nth-of-type(-n + 3) .rating__star-fill,
+.rating__input-4:checked ~ .rating__label:nth-of-type(-n + 4) .rating__star-fill,
+.rating__input-5:checked ~ .rating__label:nth-of-type(-n + 5) .rating__star-fill {
+    animation-name: starFill;
+}
+
+.rating__input-1:not(:checked):hover ~ .rating__label:first-of-type .rating__star-fill,
+.rating__input-2:not(:checked):hover ~ .rating__label:nth-of-type(2) .rating__star-fill,
+.rating__input-3:not(:checked):hover ~ .rating__label:nth-of-type(3) .rating__star-fill,
+.rating__input-4:not(:checked):hover ~ .rating__label:nth-of-type(4) .rating__star-fill,
+.rating__input-5:not(:checked):hover ~ .rating__label:nth-of-type(5) .rating__star-fill {
+    fill: var(--yellow-t);
+}
+
+/* Screen reader text */
+.rating__sr {
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(223, 10%, 10%);
+        --fg: hsl(223, 10%, 90%);
+    }
+
+    .rating {
+        margin: auto;
+    }
+
+    .rating__star-stroke {
+        stroke: hsl(223, 10%, 30%);
+    }
+}
+
+/* Animations */
+@keyframes starRing {
+    from,
+    20% {
+        animation-timing-function: ease-in;
+        opacity: 1;
+        r: 8px;
+        stroke-width: 16px;
+        transform: scale(0);
+    }
+    35% {
+        animation-timing-function: ease-out;
+        opacity: 0.5;
+        r: 8px;
+        stroke-width: 16px;
+        transform: scale(1);
+    }
+    50%,
+    to {
+        opacity: 0;
+        r: 16px;
+        stroke-width: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes starFill {
+    from,
+    40% {
+        animation-timing-function: ease-out;
+        transform: scale(0);
+    }
+    60% {
+        animation-timing-function: ease-in-out;
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes starStroke {
+    from {
+        transform: scale(1);
+    }
+    20%,
+    to {
+        transform: scale(0);
+    }
+}
+
+@keyframes starLine {
+    from,
+    40% {
+        animation-timing-function: ease-out;
+        stroke-dasharray: 1 23;
+        stroke-dashoffset: 1;
+    }
+    60%,
+    to {
+        stroke-dasharray: 12 13;
+        stroke-dashoffset: -13;
+    }
+}
+/* General Styling */
+.comment-section {
+    margin: 40px auto;
+    padding: 25px;
+    background: #f9f9f9; /* Lighter background for a softer look */
+    color: #333333; /* Darker text color for better contrast */
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Softer shadow effect */
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Comment Section Title */
+h2 {
+    text-align: center;
+    color: #388E3C; /* Slightly darker shade of green for the title */
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+/* Comments Container */
+.comments-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Comment Column */
+.comment-column {
+    flex: 1;
+    margin: 0 15px; /* Space between columns */
+    min-width: 280px; /* Prevents too small columns */
+}
+
+/* Individual Comment Styling */
+.comment {
+    background: #e9ecef; /* Softer gray background for comments */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect on Comments */
+.comment:hover {
+    background: #d1d8e1; /* Slightly darker gray */
+    transform: translateY(-5px);
+}
+
+/* Author Name Styling */
+.comment-author {
+    font-weight: bold;
+    color: #388E3C; /* Match the author color with the title */
+    font-size: 1.1em;
+}
+
+/* Comment Date Styling */
+.comment-date {
+    font-size: 0.95em;
+    color: #777777; /* Darker shade for date for better readability */
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Comment Text Styling */
+.comment-content {
+    color: #333;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Section to Leave a New Comment */
+.leave-comment {
+    margin-top: 30px;
+    background: #d9d9d9; /* Softer gray for leave comment section */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc; /* Light gray border */
+    background: #ffffff;
+    color: #333333;
+    font-size: 1em;
+    resize: vertical;
+}
+
+/* Submit Button Styling */
+.submit-comment-button {
+    background: #388E3C; /* Darker green for button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+}
+
+/* Submit Button Hover Effect */
+.submit-comment-button:hover {
+    background: #2E7D32; /* Darker shade on hover */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .comments-container {
+        flex-direction: column; /* Stack the comment columns on smaller screens */
+        align-items: center;
+    }
+
+    .comment-column {
+        margin-bottom: 20px;
+    }
+
+    .submit-comment-button {
+        width: auto;
+        margin: 0 auto;
+    }
+}
+
+
+

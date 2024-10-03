@@ -1,0 +1,92 @@
+/* Instructors section */
+.instructors-section {
+    display: flex; /* Use flexbox to arrange items side by side */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 40px; /* Padding around the section */
+    background-color: #f7f7f7; /* Light background color */
+    margin: 40px auto; /* Center the section with margins */
+    border-radius: 10px; /* Rounded corners for the section */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 1200px; /* Max width to limit size on large screens */
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-form-section p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+/* Button styling */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #81d384, #4CAF50); /* Green gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #81d384, #4CAF50); /* Darker green on hover */
+}
+
+/* Button styling for "Contacter Nous" in the instructors section */
+.contact-us-btn {
+    background: linear-gradient(to right, #81d384, #4CAF50);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-us-btn:hover {
+    background: linear-gradient(to right, #81d384, #4CAF50); /* Darker background on hover */
+}

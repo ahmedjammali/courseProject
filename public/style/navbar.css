@@ -1,0 +1,49 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Set a clean font */
+    background-color: #f4f4f4; /* Light background color */
+    color: #333; /* Dark text color */
+    line-height: 1.6; /* Better line spacing */
+}
+
+header {
+    background: linear-gradient(to right, #81d384, #4CAF50); /* Header background color */
+    color: white; /* Header text color */
+}
+
+nav .container {
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex; /* Flexbox for navigation layout */
+    justify-content: space-between; /* Space between logo and navbar */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Padding around the navbar */
+}
+
+.navbar {
+    list-style: none; /* Remove list styling */
+    display: flex; /* Flexbox for horizontal layout */
+}
+
+.navbar li {
+    margin-left: 20px; /* Space between navbar items */
+}
+
+.navbar a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove underline from links */
+}
+a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits the color from the parent element, or set your own */
+}
+li {
+    list-style: none; /* Removes the bullets or numbers */
+    padding: 0;
+    margin: 0;
+}
+

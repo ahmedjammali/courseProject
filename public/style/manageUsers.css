@@ -1,0 +1,72 @@
+/* Instructors section */
+.instructors-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #f7f7f7;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+/* Table Styling */
+.courses-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.courses-table th, .courses-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.courses-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.courses-table td {
+    background-color: #f9f9f9;
+}
+
+.courses-table img {
+    width: 100px;
+}
+
+/* Success/Error Messages */
+.message-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    background-color: #81d384;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.error-message {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+/* Delete button styling */
+.courses-table .delete-btn {
+    color: #d9534f;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.courses-table .delete-btn:hover {
+    color: #c9302c;
+}
