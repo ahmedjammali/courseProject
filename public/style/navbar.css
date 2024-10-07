@@ -39,7 +39,7 @@ nav .container {
 }
 a {
     text-decoration: none; /* Removes underline */
-    color: inherit; /* Inherits the color from the parent element, or set your own */
+    color: black; /* Inherits the color from the parent element, or set your own */
 }
 li {
     list-style: none; /* Removes the bullets or numbers */
