@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : jeu. 03 oct. 2024 à 11:21
+-- Généré le : lun. 07 oct. 2024 à 16:44
 -- Version du serveur : 8.4.2
 -- Version de PHP : 8.2.8
 
@@ -84,20 +84,22 @@ CREATE TABLE `courses` (
   `course_name` varchar(255) NOT NULL,
   `course_description` text,
   `instructor_id` int DEFAULT NULL,
-  `path` varchar(255) NOT NULL
+  `path` varchar(255) NOT NULL,
+  `path2` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `courses`
 --
 
-INSERT INTO `courses` (`id`, `course_name`, `course_description`, `instructor_id`, `path`) VALUES
-(1, 'Introduction to Web Development', 'Dive into the world of web development by learning the foundational technologies that power the internet. Master HTML, CSS, and JavaScript to build visually stunning websites, responsive designs, and user-friendly interfaces. This course covers the essential tools and frameworks used by developers to create modern, interactive websites. By the end of the course, you\'ll have built your own fully functional website from scratch.', 15, 'imgs/course1.jpeg'),
-(2, 'Advanced Data Science', 'Explore the advanced concepts of data science, including machine learning algorithms, big data processing, and data visualization techniques. Learn how to analyze complex datasets and derive actionable insights using Python, R, and specialized libraries. Topics include neural networks, deep learning, and predictive modeling to help you become a proficient data scientist.', 15, 'imgs/course1.jpeg'),
-(3, 'Cybersecurity Basics', 'Understand the fundamentals of cybersecurity and how to protect against cyber threats and attacks. This course covers the key concepts, tools, and strategies for securing systems, networks, and data. You\'ll learn about encryption, firewalls, incident response, and vulnerability management to safeguard sensitive information from hackers and malware.', 15, 'imgs/course1.jpeg'),
-(4, 'AI and Machine Learning', 'Learn how to build AI systems and understand machine learning models. This course delves into the principles of artificial intelligence, including supervised and unsupervised learning, natural language processing, and AI ethics. You will gain hands-on experience with popular AI frameworks like TensorFlow and PyTorch.', 15, 'imgs/course3.jpeg'),
-(5, 'UI/UX Design Fundamentals', 'Understand the principles of UI and UX design for web and mobile apps. In this course, you\'ll explore the user-centered design process, wireframing, prototyping, and usability testing. You\'ll also learn the best practices for creating intuitive and engaging user interfaces that offer a seamless user experience.', 15, 'imgs/course3.jpeg'),
-(6, 'Full Stack Web Development', 'Become proficient in both front-end and back-end web development. This full-stack course teaches you how to build dynamic websites using a variety of technologies, including HTML, CSS, JavaScript, Node.js, and databases. You will learn to create web applications from scratch and manage server-side processes efficiently.', 15, 'imgs/course3.jpeg');
+INSERT INTO `courses` (`id`, `course_name`, `course_description`, `instructor_id`, `path`, `path2`) VALUES
+(1, 'Introduction to Web Development', 'Dive into the world of web development by learning the foundational technologies that power the internet. Master HTML, CSS, and JavaScript to build visually stunning websites, responsive designs, and user-friendly interfaces. This course covers the essential tools and frameworks used by developers to create modern, interactive websites. By the end of the course, you\'ll have built your own fully functional website from scratch.', 15, 'imgs/course1.jpeg', NULL),
+(2, 'Advanced Data Science', 'Explore the advanced concepts of data science, including machine learning algorithms, big data processing, and data visualization techniques. Learn how to analyze complex datasets and derive actionable insights using Python, R, and specialized libraries. Topics include neural networks, deep learning, and predictive modeling to help you become a proficient data scientist.', 15, 'imgs/course1.jpeg', NULL),
+(3, 'Cybersecurity Basics', 'Understand the fundamentals of cybersecurity and how to protect against cyber threats and attacks. This course covers the key concepts, tools, and strategies for securing systems, networks, and data. You\'ll learn about encryption, firewalls, incident response, and vulnerability management to safeguard sensitive information from hackers and malware.', 15, 'imgs/course1.jpeg', NULL),
+(4, 'AI and Machine Learning', 'Learn how to build AI systems and understand machine learning models. This course delves into the principles of artificial intelligence, including supervised and unsupervised learning, natural language processing, and AI ethics. You will gain hands-on experience with popular AI frameworks like TensorFlow and PyTorch.', 15, 'imgs/course3.jpeg', NULL),
+(5, 'UI/UX Design Fundamentals', 'Understand the principles of UI and UX design for web and mobile apps. In this course, you\'ll explore the user-centered design process, wireframing, prototyping, and usability testing. You\'ll also learn the best practices for creating intuitive and engaging user interfaces that offer a seamless user experience.', 15, 'imgs/course3.jpeg', NULL),
+(6, 'Full Stack Web Development', 'Become proficient in both front-end and back-end web development. This full-stack course teaches you how to build dynamic websites using a variety of technologies, including HTML, CSS, JavaScript, Node.js, and databases. You will learn to create web applications from scratch and manage server-side processes efficiently.', 15, 'imgs/course3.jpeg', NULL),
+(15, 'gdfsqf', 'dsffsdf', 25, 'imgs/digital-marketing-course-458-x-305px.jpg', 'imgs/instructor.jpg');
 
 -- --------------------------------------------------------
 
@@ -179,7 +181,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `contact_messages`
@@ -191,13 +193,13 @@ ALTER TABLE `contact_messages`
 -- AUTO_INCREMENT pour la table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Contraintes pour les tables déchargées
