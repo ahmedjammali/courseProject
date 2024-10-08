@@ -47,7 +47,15 @@
 }
 
 .form-group input,
-.form-group select {
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -89,4 +97,8 @@
 
 .contact-us-btn:hover {
     background: linear-gradient(to right, #81d384, #4CAF50); /* Darker background on hover */
+}
+.form-group textarea {
+    height: 150px;
+    resize: vertical; /* Allow user to resize the textarea vertically */
 }

@@ -26,18 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment_text'])) {
     $commentController->addComment(); // Adding the comment
 }
 
-// Handle enrollment button submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enroll'])) {
-    // Check if user ID exists in the session
-    if (empty($_SESSION['user_id'])) {
-        // If the user is not logged in, redirect to signUp.php
-        header('Location: signUp.php');
-        exit;
-    } else {
-        // If the user is logged in, you can proceed with the enrollment logic or display a message
-        echo "You are enrolled or proceeding as logged in!";
-    }
-}
 ?>
 
 
@@ -54,19 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enroll'])) {
 
 <div class="course-detail-container">
     <div class="instructor-photo-container">
-        <img src="imgs/instructor.jpg" alt="Instructor" class="instructor-photo">
+	<img src="<?php echo htmlspecialchars($course['path']); ?>" alt="<?php echo htmlspecialchars($course['course_name']); ?>" class="instructor-photo">
         <!-- Instructor Info -->
-		<p class="instructor-info">
-                <!-- Display instructor's name -->
-                Nom de l'instructeur: <?php echo htmlspecialchars($instructor['prenom']) . ' ' . htmlspecialchars($instructor['nom']); ?><br>
-
-                <!-- Display instructor's role -->
-                Rôle: <?php echo htmlspecialchars($instructor['role']); ?> - 
-
-                <!-- Display instructor's specialty and years of experience -->
-                Spécialité: <?php echo htmlspecialchars($instructor['spécialité']); ?>,<br>
-                Expérience: <?php echo htmlspecialchars($instructor['years_of_experience']); ?> ans
-            </p>
     </div>
     <div class="course-description-container">
         <!-- Display the course name -->
@@ -76,12 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enroll'])) {
 <p class="course-description">
 	<?php echo nl2br(htmlspecialchars($course['course_description'])); ?>
 </p>
-<form method="POST" action="">
-    <button type="submit" name="enroll" class="enroll-button">Je me lance !</button>
-</form>
+
 
         <!-- Star Rating Section moved here -->
-        <h1>Rate This Course</h1>
+        <h1>Rate This Experience </h1>
         <form class="rating">
 	<div class="rating__stars">
 		<input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1">
@@ -205,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enroll'])) {
 </div>
 
 <div class="comment-section" style="width: 76%; margin: 0 auto;">
-    <h2>Nos alumni en parlent le mieux</h2>
+    <h2>SHARE YOUR EXPERIENCE</h2>
     <div class="comments-container">
 	<?php if (!empty($comments)): ?>
             <div class="comment-column">
@@ -221,16 +196,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enroll'])) {
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
-            <p>Aucun commentaire pour ce cours pour l'instant.</p>
+            <p>No comments YET !</p>
         <?php endif; ?>
     </div>
     <?php if (isset($_SESSION['user_id'])): ?>
     <div class="leave-comment">
-        <h3>Votre commentaire</h3>
+        <h3>Your comment</h3>
         <form method="POST" action="">
-            <textarea name="comment_text" placeholder="Laissez votre commentaire ici..." rows="4"></textarea>
+            <textarea name="comment_text" placeholder="Leave Your comment .. !" rows="4"></textarea>
             <input type="hidden" name="course_id" value="<?php echo $courseId; ?>">
-            <button type="submit" class="submit-comment-button">Envoyer</button>
+            <button type="submit" class="submit-comment-button">Send</button>
         </form>
     </div>
 <?php else: ?>

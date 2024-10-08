@@ -10,8 +10,6 @@ $controller = new CourseController();
 
 // Call the index method to display courses
 $courses=$controller->index();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -27,20 +25,22 @@ $courses=$controller->index();
 
     <section class="hero">
         <div class="container">
-            <h1>Forme-toi au digital. <br> Accélère ta carrière.</h1>
-            <p>Des formations pour tous les niveaux qui te forment aux métiers d’aujourd’hui et de demain, <br> auprès d’instructeurs expérimentés.</p>
+            <h1>Act for the planet.<br> Preserve nature.</h1>
+            <p>Be part of an engaged community, rewarded for its efforts, and guided by passionate mentors for a cleaner, greener world. <br>Join real-world actions to clean natural spaces and make a difference today.</p>
             <a href="#courses" class="btn">En savoir plus</a>
         </div>
     </section>
 
     <section class="info">
     <div class="container">
-        <h2>Rejoins la formation qui correspond à tes besoins</h2>
-        <p>Que tu souhaites t’initier à un domaine, accélérer ta carrière avec une certification internationale, ou changer de carrière, nous avons la formation faite pour toi.</p>
+        <h2>Join the movement that fits your passion.</h2>
+        <p>Whether you want to start making a difference, earn rewards for your environmental efforts, or take your sustainability actions to the next level, we have the perfect opportunity for you.
+
+</p>
         <div class="info-highlights">
-            <div class="highlight">50 à 350 heures</div>
-            <div class="highlight">Cours en direct</div>
-            <div class="highlight">En présentiel ou en ligne</div>
+            <div class="highlight">Over 100+ places cleaned</div>
+            <div class="highlight">Impact-driven actions</div>
+            <div class="highlight">Join our 500+ members</div>
         </div>
     </div>
     </section>
@@ -49,33 +49,33 @@ $courses=$controller->index();
     if (isset($courses) && count($courses) > 0): ?>
     <section id="courses" class="courses-section">
         <div class="courses-container">
-            <h2 class="courses-title">Most Enrolled Courses</h2>
+            <h2 class="courses-title">Recent Achievements</h2>
             <div class="courses-card-wrapper">
                 <?php foreach ($courses as $course): ?>
                     <div class="course-card">
                         <img src="<?php echo htmlspecialchars($course['path']); ?>" alt="<?php echo htmlspecialchars($course['course_name']); ?>" class="course-image">
                         <h3 class="course-title"><?php echo htmlspecialchars($course['course_name']); ?></h3>
                         <p class="course-description"><?php echo htmlspecialchars($course['course_description']); ?></p>
-                        <a href="course_detail.php?id=<?php echo $course['id']; ?>" class="course-details-btn">See Course Details</a>
+                        <a href="course_detail.php?id=<?php echo $course['id']; ?>" class="course-details-btn">See Details</a>
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 <?php else: ?>
-    <p>No courses available at the moment.</p>
+
 <?php endif; ?>
 
     <!-- Additional Section at the end of the page -->
-<!-- Additional Section at the end of the page -->
-<div class="instructors-section">
+    <!-- Additional Section at the end of the page -->
+    <div class="instructors-section">
     <div class="instructors-content">
-        <h2>Apprends avec des instructeurs qualifiés</h2>
-        <p>En plus d’être des experts dans leur domaine, ce sont des mentors qui se focalisent sur les besoins de chaque étudiant.</p>
-        <a href="contact.php" class="contact-us-btn">Contacter Nous</a>
+        <h2>Get In Touch with Us</h2>
+        <p>If you have any questions, suggestions, or would like to collaborate in cleaning up natural spaces, we’re here to help! Let’s work together to create a cleaner and greener environment.</p>
+        <a href="contact.php" class="contact-us-btn">Contact Us</a>
     </div>
     <div class="instructors-image">
-        <img src="imgs/ins.avif" alt="Instructors" class="instructor-photo">
+        <img src="imgs/cleaning.png" alt="Nature Keepers" class="instructor-photo">
     </div>
 </div>
 
@@ -83,8 +83,10 @@ $courses=$controller->index();
 
 
 
+
+
     <footer>
-        <p>&copy; 2024 Course Selling Website</p>
+        <p>&copy; 2024 </p>
     </footer>
 </body>
 </html>

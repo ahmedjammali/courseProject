@@ -42,7 +42,7 @@ nav .container {
 }
 a {
     text-decoration: none; /* Removes underline */
-    color: black; /* Inherits the color from the parent element, or set your own */
+    color: rgb(255, 255, 255); /* Inherits the color from the parent element, or set your own */
 }
 li {
     list-style: none; /* Removes the bullets or numbers */

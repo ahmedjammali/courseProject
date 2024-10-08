@@ -1,74 +1,84 @@
 <?php include 'navbar.php'; ?>
-
 <?php
-session_start();
 
+error_reporting(E_ALL);          // Report all errors
+ini_set('display_errors', 1);    // Display errors on the screen
+require_once '../app/controllers/CoursesController.php';
 
-if ($_SESSION['role'] !== 'instructor') {
-    echo "Vous devez être un instructeur pour ajouter un cours.";
-    exit;
-}
+// Create the controller instance
+$controller = new CourseController();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    require_once '../config/connection.php';
-
-
-    $courseName = $_POST['course_name'];
-    $courseDescription = $_POST['course_description'];
-    $instructorId = $_SESSION['user_id'];
-
-    $targetDir = "imgs/";
-    $imageFileName = basename($_FILES["course_image"]["name"]);
-    $targetFilePath = $targetDir . $imageFileName;
-
-
-    if (move_uploaded_file($_FILES["course_image"]["tmp_name"], $targetFilePath)) {
-
-        $sql = "INSERT INTO courses (course_name, course_description, instructor_id, path) VALUES (?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssis', $courseName, $courseDescription, $instructorId, $targetFilePath);
-        
-        if ($stmt->execute()) {
-            header("Location: landing.php");
-        } else {
-            echo "Erreur lors de l'ajout du cours : " . $stmt->error;
-        }
-    } else {
-        echo "Erreur lors du téléchargement de l'image.";
-    }
-}
+// Call the index method to display courses
+$courses=$controller->index();
 ?>
 
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un cours</title>
-    <link rel="stylesheet" href="style/addCourse.css"> 
+    <title>Landing Page - Course Selling</title>
+     
 </head>
 <body>
-    <div class="contact-form-section">
-        <h2>Ajouter un cours</h2>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="course_name">Nom du cours</label>
-                <input type="text" name="course_name" id="course_name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="course_description">Description du cours</label>
-                <textarea name="course_description" id="course_description" rows="4" required></textarea>
-            </div>
+    
+<div style = "display : flex ; justify-content : center ;  ">
 
-            <div class="form-group">
-                <label for="course_image">Image du cours</label>
-                <input type="file" name="course_image" id="course_image" accept="image/*" required>
+<section id="courses" class="courses-section" style = "width : 80%" >
+    <div class="courses-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; padding: 0 20px;">
+        <h2 class="courses-title" style="width: 100%; text-align: center; margin-top: 40px ; margin-botton : 30px ">Targeted Areas</h2>
+
+        <div class="courses-card-wrapper" style="flex: 1 1 30%; max-width: 30%; display: flex; justify-content: center;">
+            <div class="course-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <img src="imgs/dirty.jpg" alt="" class="course-image" style="width: 100%; border-radius: 5px; height: auto;">
+                <h3 class="course-title" style="text-align: center; margin: 15px 0; font-size: 1.2rem;">KRAM</h3>
+                <p class="course-description" style="text-align: center; font-size: 1rem; color: #555;">The ground is strewn with remnants of industrial waste, including plastic debris, discarded machinery parts, and hazardous materials that have accumulated over time.</p>
             </div>
-            
-            <button type="submit" class="submit-btn">Ajouter le cours</button>
-        </form>
+        </div>
+
+        <div class="courses-card-wrapper" style="flex: 1 1 30%; max-width: 30%; display: flex; justify-content: center;">
+            <div class="course-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <img src="imgs/dirty2.avif" alt="" class="course-image" style="width: 100%; border-radius: 5px; height: auto;">
+                <h3 class="course-title" style="text-align: center; margin: 15px 0; font-size: 1.2rem;">Chat Mariem</h3>
+                <p class="course-description" style="text-align: center; font-size: 1rem; color: #555;">The ground is strewn with remnants of industrial waste, including plastic debris, discarded machinery parts, and hazardous materials that have accumulated over time.</p>
+            </div>
+        </div>
+
+        <div class="courses-card-wrapper" style="flex: 1 1 30%; max-width: 30%; display: flex; justify-content: center;">
+            <div class="course-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <img src="imgs/dirty3.jpg" alt="" class="course-image" style="width: 100%; border-radius: 5px; height: auto;">
+                <h3 class="course-title" style="text-align: center; margin: 15px 0; font-size: 1.2rem;">Mount Nahli</h3>
+                <p class="course-description" style="text-align: center; font-size: 1rem; color: #555;">The ground is strewn with remnants of industrial waste, including plastic debris, discarded machinery parts, and hazardous materials that have accumulated over time.</p>
+            </div>
+        </div>
+
+        <div class="courses-card-wrapper" style="flex: 1 1 30%; max-width: 30%; display: flex; justify-content: center; margin-top : 30px">
+            <div class="course-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <img src="imgs/dirty4.webp" alt="" class="course-image" style="width: 100%; border-radius: 5px; height: auto;">
+                <h3 class="course-title" style="text-align: center; margin: 15px 0; font-size: 1.2rem;">Raoued</h3>
+                <p class="course-description" style="text-align: center; font-size: 1rem; color: #555;">The ground is strewn with remnants of industrial waste, including plastic debris, discarded machinery parts, and hazardous materials that have accumulated over time.</p>
+            </div>
+        </div>
     </div>
+</section>
+
+
+</div>
+ 
+
+
+
+
+
+
+
+<div style = "display : flex ; justify-content : center ;  ">
+    <footer style = "margin-top : 60px" >
+            <p>&copy; 2024 </p>
+        </footer>
+    </div>
+    
 </body>
 </html>
+

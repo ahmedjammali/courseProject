@@ -8,7 +8,6 @@
     // Handle form submission and get potential error message
     $errorMessage = $contactController->submitForm();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -44,15 +43,10 @@
                 <input type="tel" id="tel" name="tel" placeholder="+216" pattern="[0-9]{8}" required>
             </div>
 
+            <!-- Textarea for Message -->
             <div class="form-group">
-                <label for="formation">Formation Intéressée:</label>
-                <select id="formation" name="formation" required>
-                    <option value="web-dev">Développeur Web Full Stack</option>
-                    <option value="data-science">Data Science</option>
-                    <option value="cyber-security">Cyber Sécurité</option>
-                    <option value="ai">Intelligence Artificielle</option>
-                    <option value="ui-ux">Design UI/UX</option>
-                </select>
+                <label for="message">Votre message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
             </div>
 
             <button type="submit" class="submit-btn">Envoyer</button>

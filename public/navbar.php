@@ -15,8 +15,9 @@ session_start(); // Démarrer la session
     <header>
         <nav>
             <div class="container">
-                <li><a href="landing.php"> <h1>UmanCourse</h1> </a></li>
+                <li><a href="landing.php" style = "color : white ;" > <h1>Nature Keepers</h1> </a></li>
                 <ul class="navbar">
+                    
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                         <!-- Menu pour les administrateurs -->
                         <li><a href="seeCourses.php">Voir les cours</a></li>
@@ -26,17 +27,18 @@ session_start(); // Démarrer la session
                         <!-- Menu pour les utilisateurs non-admin -->
                         <li><a href="landing.php">Accueil</a></li>
                         <li><a href="contact.php">Contact</a></li>
+                        <li><a href="seeCourses.php">Donations</a></li>
                     <?php endif; ?>
 
                     <!-- Vérifiez si l'utilisateur est un instructeur pour afficher le lien d'ajout de cours -->
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'instructor'): ?>
-                        <li><a href="addCourse.php">Ajouter Formation</a></li>
+                        <li><a href="addCourse.php">Targeted Areas</a></li>
                     <?php endif; ?>
 
                     <!-- Vérification si l'utilisateur est connecté -->
                     <?php if (isset($_SESSION['last_name']) && isset($_SESSION['first_name'])): ?>
                         <!-- L'utilisateur est connecté -->
-                        <li>Bienvenue, <?php echo htmlspecialchars($_SESSION['first_name']) . ' ' . htmlspecialchars($_SESSION['last_name']); ?></li>
+                        
                         <li><a href="logout.php">Déconnexion</a></li> <!-- Lien de déconnexion -->
                     <?php else: ?>
                         <!-- L'utilisateur n'est pas connecté -->
