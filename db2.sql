@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 07 oct. 2024 à 16:44
+-- Généré le : mar. 08 oct. 2024 à 16:54
 -- Version du serveur : 8.4.2
 -- Version de PHP : 8.2.8
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `db1`
+-- Base de données : `db2`
 --
 
 -- --------------------------------------------------------
@@ -40,15 +40,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `course_id`, `user_id`, `comment_text`, `created_at`) VALUES
-(1, 1, 7, 'This course is perfect for beginners! I now understand the basics of HTML, CSS, and JavaScript.', '2024-10-02 10:15:00'),
-(3, 2, 10, 'Deep dive into machine learning. The instructor provided excellent insights on complex algorithms.', '2024-10-02 12:30:00'),
-(4, 2, 5, 'The real-world applications discussed made the course even more valuable.', '2024-10-02 13:45:00'),
-(5, 3, 9, 'A must-take course for anyone interested in cybersecurity. It covers all the fundamental concepts.', '2024-10-02 14:00:00'),
-(7, 4, 5, 'This course provided a comprehensive introduction to AI and machine learning. The instructor was great.', '2024-10-02 16:00:00'),
-(9, 5, 10, 'Great course! I now have a solid understanding of UI/UX design principles.', '2024-10-02 17:00:00'),
-(24, 2, 3, 'this course is great ', '2024-10-03 08:25:36'),
-(25, 1, 3, 'thsi course was great', '2024-10-03 09:40:08'),
-(26, 1, 20, 'this course is great', '2024-10-03 10:07:43');
+(2, 1, 3, 'zaeazeaz', '2024-10-08 14:52:21'),
+(3, 2, 3, 'it was amazing', '2024-10-08 15:19:04'),
+(4, 3, 25, 'it was amazing ', '2024-10-08 16:02:19');
 
 -- --------------------------------------------------------
 
@@ -93,13 +87,12 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `course_name`, `course_description`, `instructor_id`, `path`, `path2`) VALUES
-(1, 'Introduction to Web Development', 'Dive into the world of web development by learning the foundational technologies that power the internet. Master HTML, CSS, and JavaScript to build visually stunning websites, responsive designs, and user-friendly interfaces. This course covers the essential tools and frameworks used by developers to create modern, interactive websites. By the end of the course, you\'ll have built your own fully functional website from scratch.', 15, 'imgs/course1.jpeg', NULL),
-(2, 'Advanced Data Science', 'Explore the advanced concepts of data science, including machine learning algorithms, big data processing, and data visualization techniques. Learn how to analyze complex datasets and derive actionable insights using Python, R, and specialized libraries. Topics include neural networks, deep learning, and predictive modeling to help you become a proficient data scientist.', 15, 'imgs/course1.jpeg', NULL),
-(3, 'Cybersecurity Basics', 'Understand the fundamentals of cybersecurity and how to protect against cyber threats and attacks. This course covers the key concepts, tools, and strategies for securing systems, networks, and data. You\'ll learn about encryption, firewalls, incident response, and vulnerability management to safeguard sensitive information from hackers and malware.', 15, 'imgs/course1.jpeg', NULL),
-(4, 'AI and Machine Learning', 'Learn how to build AI systems and understand machine learning models. This course delves into the principles of artificial intelligence, including supervised and unsupervised learning, natural language processing, and AI ethics. You will gain hands-on experience with popular AI frameworks like TensorFlow and PyTorch.', 15, 'imgs/course3.jpeg', NULL),
-(5, 'UI/UX Design Fundamentals', 'Understand the principles of UI and UX design for web and mobile apps. In this course, you\'ll explore the user-centered design process, wireframing, prototyping, and usability testing. You\'ll also learn the best practices for creating intuitive and engaging user interfaces that offer a seamless user experience.', 15, 'imgs/course3.jpeg', NULL),
-(6, 'Full Stack Web Development', 'Become proficient in both front-end and back-end web development. This full-stack course teaches you how to build dynamic websites using a variety of technologies, including HTML, CSS, JavaScript, Node.js, and databases. You will learn to create web applications from scratch and manage server-side processes efficiently.', 15, 'imgs/course3.jpeg', NULL),
-(15, 'gdfsqf', 'dsffsdf', 25, 'imgs/digital-marketing-course-458-x-305px.jpg', 'imgs/instructor.jpg');
+(1, 'Beach Cleanup', 'A beach cleanup event where we gathered volunteers to clean the shorelines and promote waste management.', 3, 'imgs/cleaning.png', 'imgs/cleaning2'),
+(2, 'Forest Restoration', 'A forest restoration initiative where volunteers planted trees and removed plastic waste from hiking trails.', 3, 'imgs/cleaning2.jpeg', 'imgs/cleaning2'),
+(3, 'Riverbank Cleaning', 'Cleaning the local riverbank by removing plastic bottles, cans, and other debris while educating people on water conservation.', 3, 'imgs/cleaning3.jpg', 'imgs/cleaning2'),
+(4, 'Park Cleanup', 'A community effort to clean the public park and create awareness about the importance of green spaces in urban areas.', 3, 'imgs/cleaning4.webp', 'imgs/cleaning2'),
+(5, 'Mountain Cleanup', 'A mountain cleanup drive where we collected trash left behind by hikers and camped for environmental education sessions.', 3, 'imgs/cleaning5.webp', 'imgs/cleaning2'),
+(6, 'Ocean Cleanup', 'An ocean cleanup initiative where we partnered with divers to remove underwater debris and protect marine life.', 3, 'imgs/cleaning6.jpg', 'imgs/cleaning2');
 
 -- --------------------------------------------------------
 
@@ -181,7 +174,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `contact_messages`
@@ -193,7 +186,7 @@ ALTER TABLE `contact_messages`
 -- AUTO_INCREMENT pour la table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -209,7 +202,6 @@ ALTER TABLE `users`
 -- Contraintes pour la table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
