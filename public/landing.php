@@ -86,7 +86,7 @@ $courses=$controller->index();
 
 
     <footer>
-        <p>&copy; 2024 </p>
+        <p>GAIA &copy; 2024 </p>
     </footer>
 </body>
 </html>

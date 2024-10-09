@@ -15,7 +15,7 @@ session_start(); // Démarrer la session
     <header>
         <nav>
             <div class="container">
-                <li><a href="landing.php" style = "color : white ;" > <h1>Nature Keepers</h1> </a></li>
+                <li><a href="landing.php" style = "color : white ;" > <img src="imgs/1.png" alt="logo" style="height: 180px; margin:0px;"> </a></li>
                 <ul class="navbar">
                     
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
