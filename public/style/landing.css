@@ -79,6 +79,7 @@ nav .container {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+
 }
 
 /* Card hover effect */
@@ -89,7 +90,7 @@ nav .container {
 /* Course card image */
 .course-image {
     max-width: 100%;
-    height: auto;
+    height: 200px;
     border-radius: 8px 8px 0 0;
 }
 
@@ -145,7 +146,11 @@ footer {
     margin: 20px 0; /* Space above and below footer */
 }
 .hero {
-    background-color: black; /* Black background for the hero section */
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("../imgs/hero-bgh.jpg");
+
+    background-size: cover; /* Black background for the hero section */
+    background-repeat: no-repeat;
+    background-position: center center;
     color: white; /* White text color */
     padding: 70px 20px; /* Padding inside the hero section */
     text-align: center; /* Center align text */

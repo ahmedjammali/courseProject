@@ -26,25 +26,25 @@ session_start(); // Démarrer la session
                     <?php else: ?>
                         <!-- Menu pour les utilisateurs non-admin -->
                         <li><a href="landing.php">Accueil</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+
                         <li><a href="seeCourses.php">Donations</a></li>
                     <?php endif; ?>
 
                     <!-- Vérifiez si l'utilisateur est un instructeur pour afficher le lien d'ajout de cours -->
-                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'instructor'): ?>
+
                         <li><a href="addCourse.php">Targeted Areas</a></li>
-                    <?php endif; ?>
+                        <li><a href="contact.php">Contact</a></li>
 
                     <!-- Vérification si l'utilisateur est connecté -->
-                    <?php if (isset($_SESSION['last_name']) && isset($_SESSION['first_name'])): ?>
+
                         <!-- L'utilisateur est connecté -->
                         
-                        <li><a href="logout.php">Déconnexion</a></li> <!-- Lien de déconnexion -->
-                    <?php else: ?>
-                        <!-- L'utilisateur n'est pas connecté -->
-                        <li><a href="Login.php">Connexion</a></li>
-                        <li><a href="signUp.php">Inscription</a></li>
-                    <?php endif; ?>
+                        <!-- <li><a href="logout.php">Déconnexion</a></li> Lien de déconnexion -->
+
+
+                        <!-- <li><a href="Login.php">Connexion</a></li>
+                        <li><a href="signUp.php">Inscription</a></li> -->
+
                 </ul>
             </div>
         </nav>
